@@ -4,6 +4,9 @@ import Header from './components/Header/Header'
 import Home from './components/Home/Home'
 import Category from './components/Category/Category'
 import Awesome from './components/Awesome/Awesome'
+import Weekly from './components/Weekly/Weekly'
+import Subscribe from './components/Subscribe/Subscribe'
+import Footer from './components/Footer/Footer';
 
 import './App.css'
 
@@ -17,8 +20,9 @@ function App() {
       <Router>
         <Header/>
         <Routes>
-          <Route path='/' element={<><Home/><Category/><Awesome/></>}/>
+          <Route path='/' element={<><Home/><Category/><Awesome/><Weekly/><Subscribe/></>}/>
         </Routes>
+        <Footer/>
       </Router>
     </>
   )

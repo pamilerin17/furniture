@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Product1 from '../../assets/product_1.png.webp';
 import Product2 from '../../assets/product_2.png.webp';
 import Product3 from '../../assets/product_3.png.webp';
@@ -7,69 +7,118 @@ import Product5 from '../../assets/product_5.png.webp';
 import Product6 from '../../assets/product_6.png.webp';
 import Product7 from '../../assets/product_7.png.webp';
 import Product8 from '../../assets/product_8.png.webp';
+import { CiHeart, CiShoppingCart } from "react-icons/ci";
 import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 import Header from '../Header/Header';
 
 function Awesome() {
-  const [cartCount, setCartCount] = useState(0);
-  const [likeCount, setLikeCount] = useState(0);
+  // State for global cart/like counts - these should ideally be managed in context
+  const [globalCartCount, setGlobalCartCount] = useState(0);
+  const [globalLikeCount, setGlobalLikeCount] = useState(0);
+  
+  // State to track which products are in cart/liked
+  const [cartItems, setCartItems] = useState([]);
+  const [likedItems, setLikedItems] = useState([]);
+  
+  // This effect is for communicating with Header component
+  // In a real app, you'd use Context API instead
+  useEffect(() => {
+    // You could dispatch a custom event that your Header listens to
+    const event = new CustomEvent('cart-updated', { detail: { count: globalCartCount } });
+    document.dispatchEvent(event);
+    
+    const likeEvent = new CustomEvent('like-updated', { detail: { count: globalLikeCount } });
+    document.dispatchEvent(likeEvent);
+  }, [globalCartCount, globalLikeCount]);
 
-  const handleAddToCart = () => setCartCount(cartCount + 1);
-  const handleLike = () => setLikeCount(likeCount + 1);
+  const handleAddToCart = (productId) => {
+    if (!cartItems.includes(productId)) {
+      setCartItems([...cartItems, productId]);
+      setGlobalCartCount(globalCartCount + 1);
+    } else {
+      setCartItems(cartItems.filter(id => id !== productId));
+      setGlobalCartCount(globalCartCount - 1);
+    }
+  };
+
+  const handleLike = (productId) => {
+    if (!likedItems.includes(productId)) {
+      setLikedItems([...likedItems, productId]);
+      setGlobalLikeCount(globalLikeCount + 1);
+    } else {
+      setLikedItems(likedItems.filter(id => id !== productId));
+      setGlobalLikeCount(globalLikeCount - 1);
+    }
+  };
 
   const products = [
-    { image: Product1, title: 'Latest Chair', price: '₦10,000' },
-    { image: Product2, title: 'Latest Chair', price: '₦10,000' },
-    { image: Product3, title: 'Latest Chair', price: '₦10,000' },
-    { image: Product4, title: 'Latest Chair', price: '₦10,000' },
-    { image: Product5, title: 'Latest Chair', price: '₦10,000' },
-    { image: Product6, title: 'Latest Chair', price: '₦10,000' },
-    { image: Product7, title: 'Latest Chair', price: '₦10,000' },
-    { image: Product8, title: 'Latest Chair', price: '₦10,000' },
+    { id: 1, image: Product1, title: 'Latest Sofa', price: '₦10,000' },
+    { id: 2, image: Product2, title: 'Latest Sofa', price: '₦10,000' },
+    { id: 3, image: Product3, title: 'Latest Sofa', price: '₦10,000' },
+    { id: 4, image: Product4, title: 'Latest Sofa', price: '₦10,000' },
+    { id: 5, image: Product5, title: 'Latest Sofa', price: '₦10,000' },
+    { id: 6, image: Product6, title: 'Latest Sofa', price: '₦10,000' },
+    { id: 7, image: Product7, title: 'Latest Sofa', price: '₦10,000' },
+    { id: 8, image: Product8, title: 'Latest Sofa', price: '₦10,000' },
   ];
 
   return (
     <div>
       <Header />
-      <div className="bg-[#f6fbff] px-6 py-16">
-        <h2 className="text-3xl font-bold text-center mb-10">Awesome Products</h2>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {products.map((product, index) => (
-            <div
-              key={index}
-              className="group bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition duration-300 relative"
-            >
-              {/* Product Image */}
-              <div className="relative mb-4">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-56 object-cover rounded-lg"
-                />
-                {/* Hover Buttons */}
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
-                  <button
-                    onClick={handleLike}
-                    className="text-white bg-pink-600 p-2 rounded-full mr-2 hover:bg-pink-700 transition duration-300"
-                  >
-                    <FaHeart />
-                  </button>
-                  <button
-                    onClick={handleAddToCart}
-                    className="text-white bg-green-600 p-2 rounded-full hover:bg-green-700 transition duration-300"
-                  >
-                    <FaShoppingCart />
-                  </button>
+      <div className="bg-white px-6 py-16">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Awesome Products</h2>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="group relative bg-white rounded-lg overflow-hidden transition duration-300 hover:shadow-md"
+              >
+                {/* Product Image */}
+                <div className="relative h-64 bg-gray-50">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                  />
+                  
+                  {/* Hover Overlay with Buttons */}
+                  <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <button
+                      onClick={() => handleLike(product.id)}
+                      className="bg-white p-3 rounded-full shadow-md hover:bg-gray-100 transition-transform duration-300 hover:scale-110"
+                      aria-label="Add to wishlist"
+                    >
+                      {likedItems.includes(product.id) ? (
+                        <FaHeart className="text-red-500 text-xl" />
+                      ) : (
+                        <CiHeart className="text-gray-800 text-xl" />
+                      )}
+                    </button>
+                    
+                    <button
+                      onClick={() => handleAddToCart(product.id)}
+                      className="bg-white p-3 rounded-full shadow-md hover:bg-gray-100 transition-transform duration-300 hover:scale-110"
+                      aria-label="Add to cart"
+                    >
+                      {cartItems.includes(product.id) ? (
+                        <FaShoppingCart className="text-blue-600 text-xl" />
+                      ) : (
+                        <CiShoppingCart className="text-gray-800 text-xl" />
+                      )}
+                    </button>
+                  </div>
+                </div>
+                
+                {/* Product Info */}
+                <div className="text-center py-4">
+                  <h3 className="text-lg font-medium text-gray-900">{product.title}</h3>
+                  <p className="mt-1 text-gray-700">{product.price}</p>
                 </div>
               </div>
-
-              {/* Product Details */}
-              <div className="text-center">
-                <h3 className="text-xl font-semibold text-gray-800">{product.title}</h3>
-                <p className="text-gray-600 text-sm">{product.price}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

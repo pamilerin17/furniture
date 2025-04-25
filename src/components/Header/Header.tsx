@@ -101,9 +101,9 @@ function Header() {
                     <Link to="/page/login" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Login </Link>
                     <Link to="/page/track" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Tracking</Link>
                     <Link to="/page/check" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Product Checkout</Link>
-                    <Link to="/page/cart" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Shopping Cart</Link>
+                   
                     <Link to="/page/confirm" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Confirmation</Link>
-                    <Link to="/page/element" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Elements</Link>
+                   
                   </div>
                 )}
               </div>
@@ -248,13 +248,7 @@ function Header() {
                       >
                         Product Checkout
                       </Link>
-                      <Link 
-                        to="/page/cart" 
-                        className="text-gray-800 hover:text-blue-600"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        Shopping Cart
-                      </Link>
+                      
                       <Link 
                         to="/page/confirm" 
                         className="text-gray-800 hover:text-blue-600"
@@ -262,13 +256,7 @@ function Header() {
                       >
                         Confirmation
                       </Link>
-                      <Link 
-                        to="/page/element" 
-                        className="text-gray-800 hover:text-blue-600"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        Elements
-                      </Link>
+                      
                     </div>
                   )}
                 </div>
