@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CiHeart } from 'react-icons/ci';
 import Brown from '../../../assets/brown.webp'
-import Smallie from '../../../assets/smallie.webp'
+
 
 function Details() {
   const [quantity, setQuantity] = useState(1);
