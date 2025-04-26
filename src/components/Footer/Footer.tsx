@@ -54,16 +54,24 @@ function Footer() {
           <div>
             <h3 className="text-lg font-bold text-gray-900 mb-4">Newsletter</h3>
             <p className="text-gray-500 mb-4">Heaven fruitful doesn't over lesser in days. Appear creeping</p>
-            
+            {/* <div className="flex flex-col sm:flex-row gap-2">
+              <input 
+                type="email" 
+                placeholder="Email Address" 
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+              />
+              <button className="bg-pink-500 text-white px-6 py-2 rounded hover:bg-pink-600 transition-colors">
+                subscribe
+              </button>
+            </div> */}
           </div>
         </div>
 
         {/* Footer Bottom Section */}
         <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-500 mb-4 md:mb-0">
-  Copyright ©{new Date().getFullYear()} All rights reserved
-</div>
-
+            Copyright ©{new Date().getFullYear()} All rights reserved
+          </div>
          
         </div>
       </div>

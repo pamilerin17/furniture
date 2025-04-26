@@ -81,7 +81,7 @@ function Header() {
                 </button>
                 {shopDropdownOpen && (
                   <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-10">
-                    <Link to="/shop/Category" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Shop Category</Link>
+                    <Link to="/shop/kategory" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Shop Category</Link>
                     <Link to="/shop/Details" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Product Details</Link>
                   </div>
                 )}
@@ -199,7 +199,7 @@ function Header() {
                   {shopDropdownOpen && (
                     <div className="ml-4 mt-2 flex flex-col space-y-2">
                       <Link 
-                        to="/shop/Category" 
+                        to="/shop/Kategory" 
                         className="text-gray-800 hover:text-blue-600"
                         onClick={() => setIsMenuOpen(false)}
                       >

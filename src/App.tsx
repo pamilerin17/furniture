@@ -7,7 +7,10 @@ import Awesome from './components/Awesome/Awesome'
 import Weekly from './components/Weekly/Weekly'
 import Subscribe from './components/Subscribe/Subscribe'
 import Footer from './components/Footer/Footer';
-
+import Kategory from './components/shop/Kategory/Kategory'; 
+import Single from './components/Single/Single'
+import Details from './components/shop/Details/Details'
+import Comments from './components/shop/comments/Comments'
 import './App.css'
 
 
@@ -21,6 +24,8 @@ function App() {
         <Header/>
         <Routes>
           <Route path='/' element={<><Home/><Category/><Awesome/><Weekly/><Subscribe/></>}/>
+          <Route path='/shop/Kategory' element={<><Kategory/><Category/></>}/>
+          <Route path='/shop/Details' element={<><Single/><Details/><Comments/><Awesome/></>}/>
         </Routes>
         <Footer/>
       </Router>
