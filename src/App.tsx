@@ -11,6 +11,16 @@ import Kategory from './components/shop/Kategory/Kategory';
 import Single from './components/Single/Single'
 import Details from './components/shop/Details/Details'
 import Comments from './components/shop/comments/Comments'
+import Login from './components/page/login/login'
+import Welcome from './components/page/welcome/welcome';
+import Track from './components/page/track/Track'
+import Tra from './components/page/track/tra/tra';
+import Che from './components/page/che/che'
+import Check from './components/page/check/Check'
+import Billing from './components/page/Billing/Billing'
+import Conf from './components/page/conf/conf'
+import Confirm from './components/page/confirm/confirm'
+import Konf from './components/page/Konf/Konf'
 import './App.css'
 
 
@@ -26,6 +36,10 @@ function App() {
           <Route path='/' element={<><Home/><Category/><Awesome/><Weekly/><Subscribe/></>}/>
           <Route path='/shop/Kategory' element={<><Kategory/><Category/></>}/>
           <Route path='/shop/Details' element={<><Single/><Details/><Comments/><Awesome/></>}/>
+          <Route path='/page/login' element={<><Login/><Welcome/></>}/>
+          <Route path='/page/track' element={<><Tra/><Track/></>}/>
+          <Route path='/page/check' element={<><Che/><Check/><Billing/></>}/>
+          <Route path='/page/confirm' element={<><Conf/><Confirm/><Konf/></>}/>
         </Routes>
         <Footer/>
       </Router>

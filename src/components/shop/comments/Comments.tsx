@@ -55,7 +55,7 @@ function Comments() {
                 <span className="font-medium">Weight:</span> 12 kg
               </div>
               <div className="border-b pb-2">
-                <span className="font-medium">Color:</span> Orange
+                <span className="font-medium">Color:</span> Brown
               </div>
               <div className="border-b pb-2">
                 <span className="font-medium">Assembly:</span> Required
