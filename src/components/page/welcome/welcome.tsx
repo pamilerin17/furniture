@@ -5,7 +5,7 @@ function Welcome() {
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     console.log('Login attempted with:', { username, password, rememberMe });
     // Handle login logic here

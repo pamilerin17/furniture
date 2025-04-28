@@ -8,11 +8,11 @@ function Comments() {
 
   const tabs = ['Description', 'Specification', 'Comments', 'Reviews'];
 
-  const handleTabClick = (tab) => {
+  const handleTabClick = (tab: React.SetStateAction<string>) => {
     setActiveTab(tab);
   };
 
-  const renderStars = (count, filled = true) => {
+  const renderStars = (count: number, filled = true) => {
     return Array(count).fill(0).map((_, i) => (
       <CiStar 
         key={i} 
@@ -22,7 +22,7 @@ function Comments() {
     ));
   };
 
-  const handleRatingClick = (selectedRating) => {
+  const handleRatingClick = (selectedRating: React.SetStateAction<number>) => {
     setRating(selectedRating);
   };
 

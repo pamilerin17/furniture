@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import login from '../login/login';
+import { Link } from 'react-router-dom';
+
+
 
 function Check() {
   const [username, setUsername] = useState('');
@@ -8,17 +10,16 @@ function Check() {
   const [couponCode, setCouponCode] = useState('');
   const [couponVisible, setCouponVisible] = useState(false);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log('Login attempted with:', { username, password, rememberMe });
-    // Handle login logic here
-  };
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  console.log('Login attempted with:', { username, password, rememberMe });
+};
 
-  const handleApplyCoupon = (e) => {
-    e.preventDefault();
-    console.log('Applying coupon:', couponCode);
-    // Handle coupon logic here
-  };
+const handleApplyCoupon = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  console.log('Applying coupon:', couponCode);
+};
+
 
   const toggleCoupon = () => {
     setCouponVisible(!couponVisible);
@@ -30,9 +31,10 @@ function Check() {
       <div className="bg-blue-50 p-4 mb-6 rounded">
         <p className="text-gray-700">
           Returning Customer?{' '}
-          <a href="Login" className="text-blue-500 hover:underline">
-            Click here to login
-          </a>
+         <Link to="/login" className="text-blue-500 hover:underline">
+  Click here to login
+</Link>
+
         </p>
       </div>
 

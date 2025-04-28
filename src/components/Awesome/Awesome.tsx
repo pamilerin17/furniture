@@ -7,21 +7,20 @@ import Product5 from '../../assets/product_5.png.webp';
 import Product6 from '../../assets/product_6.png.webp';
 import Product7 from '../../assets/product_7.png.webp';
 import Product8 from '../../assets/product_8.png.webp';
-import { CiHeart, CiShoppingCart } from "react-icons/ci";
+import { CiHeart, CiShoppingCart } from 'react-icons/ci';
 import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 import Header from '../Header/Header';
 
 function Awesome() {
-  // State for global cart/like counts - these should ideally be managed in context
-  const [globalCartCount, setGlobalCartCount] = useState(0);
-  const [globalLikeCount, setGlobalLikeCount] = useState(0);
+  // State for global cart/like counts
+  const [globalCartCount, setGlobalCartCount] = useState<number>(0);
+  const [globalLikeCount, setGlobalLikeCount] = useState<number>(0);
   
   // State to track which products are in cart/liked
-  const [cartItems, setCartItems] = useState([]);
-  const [likedItems, setLikedItems] = useState([]);
+  const [cartItems, setCartItems] = useState<number[]>([]);
+  const [likedItems, setLikedItems] = useState<number[]>([]);
   
   // This effect is for communicating with Header component
-  // In a real app, you'd use Context API instead
   useEffect(() => {
     // You could dispatch a custom event that your Header listens to
     const event = new CustomEvent('cart-updated', { detail: { count: globalCartCount } });
@@ -31,24 +30,22 @@ function Awesome() {
     document.dispatchEvent(likeEvent);
   }, [globalCartCount, globalLikeCount]);
 
-  const handleAddToCart = (productId) => {
-    if (!cartItems.includes(productId)) {
-      setCartItems([...cartItems, productId]);
-      setGlobalCartCount(globalCartCount + 1);
-    } else {
-      setCartItems(cartItems.filter(id => id !== productId));
-      setGlobalCartCount(globalCartCount - 1);
-    }
+  const handleAddToCart = (productId: number) => {
+    const updatedCartItems = cartItems.includes(productId)
+      ? cartItems.filter(id => id !== productId)
+      : [...cartItems, productId];
+
+    setCartItems(updatedCartItems);
+    setGlobalCartCount(updatedCartItems.length);
   };
 
-  const handleLike = (productId) => {
-    if (!likedItems.includes(productId)) {
-      setLikedItems([...likedItems, productId]);
-      setGlobalLikeCount(globalLikeCount + 1);
-    } else {
-      setLikedItems(likedItems.filter(id => id !== productId));
-      setGlobalLikeCount(globalLikeCount - 1);
-    }
+  const handleLike = (productId: number) => {
+    const updatedLikedItems = likedItems.includes(productId)
+      ? likedItems.filter(id => id !== productId)
+      : [...likedItems, productId];
+
+    setLikedItems(updatedLikedItems);
+    setGlobalLikeCount(updatedLikedItems.length);
   };
 
   const products = [

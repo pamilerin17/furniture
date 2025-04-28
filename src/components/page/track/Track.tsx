@@ -5,17 +5,16 @@ function Track() {
   const [email, setEmail] = useState('');
   const [isTracking, setIsTracking] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsTracking(true);
-    
-    // Simulate tracking functionality
-    setTimeout(() => {
-      setIsTracking(false);
-      // Would normally handle API call to track order
-      console.log('Tracking order:', orderId, email);
-    }, 1500);
-  };
+ const handleSubmit = (e: { preventDefault: () => void; }) => {
+  e.preventDefault();
+  setIsTracking(true);
+
+  setTimeout(() => {
+    setIsTracking(false);
+    console.log('Tracking order:', orderId, email);
+  }, 1500);
+};
+
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">

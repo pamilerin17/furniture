@@ -9,10 +9,7 @@ export default function Cont() {
     setLoading(false);
   };
 
-  const handleMapError = () => {
-    setLoading(false);
-    setMapError(true);
-  };
+  
 
   const handleRetry = () => {
     setLoading(true);
@@ -73,15 +70,15 @@ export default function Cont() {
             </div>
           ) : (
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.363017368674!2d3.349446173667998!3d6.601729193392141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9230fc4fc853%3A0xd8babb191dac2f6b!2sAllen%20Ave%2C%20Allen%2C%20Ikeja%20101233%2C%20Lagos!5e0!3m2!1sen!2sng!4v1745858878456!5m2!1sen!2sng" 
-              className="w-full h-full"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              onLoad={handleMapLoad}
-              onError={handleMapError}
-            />
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.363017368674!2d3.349446173667998!3d6.601729193392141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9230fc4fc853%3A0xd8babb191dac2f6b!2sAllen%20Ave%2C%20Allen%2C%20Ikeja%20101233%2C%20Lagos!5e0!3m2!1sen!2sng!4v1745858878456!5m2!1sen!2sng" 
+  className="w-full h-full"
+  style={{ border: 0 }}
+ 
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  onLoad={handleMapLoad}
+/>
+
           )}
         </div>
       </div>
