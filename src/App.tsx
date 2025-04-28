@@ -21,6 +21,8 @@ import Billing from './components/page/Billing/Billing'
 import Conf from './components/page/conf/conf'
 import Confirm from './components/page/confirm/confirm'
 import Konf from './components/page/Konf/Konf'
+import Contact from './components/contact/Contact'
+import Cont from './components/cont/Cont'
 import './App.css'
 
 
@@ -40,6 +42,7 @@ function App() {
           <Route path='/page/track' element={<><Tra/><Track/></>}/>
           <Route path='/page/check' element={<><Che/><Check/><Billing/></>}/>
           <Route path='/page/confirm' element={<><Conf/><Confirm/><Konf/></>}/>
+          <Route path='/Contact' element={<><Contact/><Cont/></>}/>
         </Routes>
         <Footer/>
       </Router>
