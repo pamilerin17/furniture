@@ -37,7 +37,7 @@ export default function Cont() {
           <p className="mb-6 text-gray-600">Lagos, Nigeria</p>
           
           <h2 className="text-xl font-semibold mb-4 text-gray-700">Contact Information</h2>
-          <p className="mb-2 text-gray-600">Email: info@company.com</p>
+          <p className="mb-2 text-gray-600">Email: info@okus.com</p>
           <p className="mb-2 text-gray-600">Phone: +234 123 456 7890</p>
           <p className="mb-2 text-gray-600">WhatsApp: +234 987 654 3210</p>
           
