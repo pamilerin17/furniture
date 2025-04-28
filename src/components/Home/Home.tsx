@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Chair from '../../assets/banner_img.png.webp'
 import Chair2 from '../../assets/istock.webp' // Add a second image
 

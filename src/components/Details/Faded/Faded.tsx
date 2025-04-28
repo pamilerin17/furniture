@@ -2,8 +2,7 @@ import  { useState } from 'react';
 import { CiHeart } from 'react-icons/ci';
 import Brown from '../../../assets/frames-for-your-heart-qRpeU_thb-g-unsplash.jpg'
 
-
-function Details() {
+function Faded() {
   const [quantity, setQuantity] = useState(1);
 
   const increaseQuantity = () => {
@@ -99,4 +98,4 @@ function Details() {
   );
 }
 
-export default Details;
+export default Faded;

@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import Blue from '../../../assets/feature_1-removebg-preview.png';
 
 function Kategory() {

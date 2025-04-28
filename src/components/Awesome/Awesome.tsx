@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import Product1 from '../../assets/product_1.png.webp';
 import Product2 from '../../assets/product_2.png.webp';
 import Product3 from '../../assets/product_3.png.webp';

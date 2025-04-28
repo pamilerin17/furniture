@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import  { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { CiHeart, CiSearch, CiShoppingCart, CiMenuBurger } from "react-icons/ci"
 import { IoMdArrowDropdown } from "react-icons/io"

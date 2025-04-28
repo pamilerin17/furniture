@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import Sub from '../../assets/subscribe_area.png'
 
 function Subscribe() {

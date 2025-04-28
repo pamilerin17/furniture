@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { CiCircleAlert } from "react-icons/ci";
 
 export default function Cont() {

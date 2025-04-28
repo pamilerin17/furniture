@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { CiHeart } from 'react-icons/ci';
-import Brown from '../../../assets/brown.webp'
+import Brown from '../../../assets/frames-for-your-heart-qRpeU_thb-g-unsplash.jpg'
 
 
 function Details() {
